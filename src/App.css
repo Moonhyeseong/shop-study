@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+.jumbotron {
+  background-image: url('https://codingapple.com/wp-content/uploads/2020/05/background.jpg');
+  background-size: cover;
+  padding: 30px;
+  background-color: aliceblue;
+  text-align: center;
+  color: white;
+}
