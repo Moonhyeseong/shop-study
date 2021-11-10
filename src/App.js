@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
-import shoesData from './data.js';
+import Data from './data.js';
 import Card from './components/card.js';
 
 import { Link, Switch, Route } from 'react-router-dom';
 function App() {
-  let [shoes, setShoes] = useState(shoesData);
+  let [shoes, setShoes] = useState(Data);
 
   return (
     <div className="App">
