@@ -20,10 +20,16 @@ let Alert = styled.div`
 function Detail(props) {
   const [toggleAlert, settoggleAlert] = useState(true);
   useEffect(() => {
+    //detail 컴포넌트가 렌더링될때 실행되는 코드
     let timer = setTimeout(() => {
       settoggleAlert(false);
     }, 2000);
-  });
+    //return
+    //detail 컴포넌트가 사라질때 실행될 코드
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
   let { id } = useParams();
   let findingShoes = props.shoes.find(function (shoes) {
     return shoes.id == id;
@@ -37,7 +43,7 @@ function Detail(props) {
       {toggleAlert === true ? <Alert>재고가 얼마 남지 않았습니다.</Alert> : null}
       <div className="row">
         <div className="col-md-6">
-          <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
+          <img src={'https://codingapple1.github.io/shop/shoes' + (findingShoes.id + 1) + '.jpg'} alt="item" width="100%" />
         </div>
         <div className="col-md-6 mt-4">
           <h4 className="pt-5">{findingShoes.title}</h4>
@@ -48,6 +54,7 @@ function Detail(props) {
             className="btn btn-danger"
             onClick={() => {
               history.goBack();
+              //history.push(url);
             }}>
             뒤로가기
           </button>
